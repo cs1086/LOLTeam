@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
+const val API_KEY="RGAPI-3c16d27b-3321-4918-8e8a-213de8c05c4b"
 class MainViewModel(val repository: APIRepository) : ViewModel() {
     val playerList=mutableStateListOf("剁汝雞","我笑他人","放下愛","冬片四季","神狙維尼","阿承小恩","cityoftown","DCKaterERC")
     val _AList= MutableStateFlow(mutableStateListOf<String>())
@@ -52,16 +52,16 @@ class MainViewModel(val repository: APIRepository) : ViewModel() {
             try {
                 val summonerInfo = lolApiService.getSummonerInfo(
                     "剁汝雞",
-                    "RGAPI-4fcb5838-256a-4a3a-9119-2c674e97674f"
+                    API_KEY
                 )
                 lolApiService2.getMatchListInfo(
                     summonerInfo.puuid,
                     0, 10,
-                    "RGAPI-4fcb5838-256a-4a3a-9119-2c674e97674f"
+                    API_KEY
                 ).forEach{
                     val summonerInfo = lolApiService.getSummonerInfo(
                         "剁汝雞",
-                        "RGAPI-4fcb5838-256a-4a3a-9119-2c674e97674f"
+                        API_KEY
                     )
                 }
                 // 处理返回的数据

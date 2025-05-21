@@ -24,12 +24,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mouse.lol_team.ui.theme.LOLTeamTheme
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
+import kotlin.random.Random
 class MainActivity : ComponentActivity() {
     val mainViewModel by viewModel<MainViewModel>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
+
         mainViewModel.getSummonner()
         super.onCreate(savedInstanceState)
         setContent {
